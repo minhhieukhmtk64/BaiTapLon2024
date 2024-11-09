@@ -1,0 +1,60 @@
+5
+MH1
+Banh Oreo
+Orion
+MH2
+Sua Chua 
+Vinamilk
+MH3
+Thach Rau Cau
+Long Hai
+MH4
+Kem Dua Hau
+Merino
+MH5
+Nuoc Tang Luc
+Redbull
+
+7
+HD1
+MH1
+Mua
+10
+1/11/2024
+80000
+HD2
+MH2
+Mua
+15
+1/11/2024
+90000
+HD3
+MH3
+Mua
+5
+1/11/2024
+110000
+HD4
+MH4
+Mua
+7
+1/11/2024
+63000
+HD5
+MH5
+Mua
+5
+1/11/2024
+50000
+HD6
+MH1
+Ban 
+4
+2/11/2024
+40000
+HD7
+MH2
+Ban
+8
+3/11/2024
+50000

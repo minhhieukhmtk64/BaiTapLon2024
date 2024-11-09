@@ -1,0 +1,16 @@
+3
+001
+Nguyen Minh Hieu
+2005
+Nam
+10
+002
+Dong Duc Manh
+2006
+Nu
+9
+003
+Hup Xi Xup
+1999
+Nu
+8 
