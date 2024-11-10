@@ -8,21 +8,22 @@ private:
     int size, space;
     T *elem;
 
-    void Expand(int newspace)
+private:
+    void Expand(int n)
     {
-        if (newspace <= space)
+        if (n <= space)
             return;
         else
         {
             T *odd = elem;
-            elem = new T[newspace];
+            elem = new T[n];
             for (int i = 0; i < size; i++)
             {
                 elem[i] = odd[i];
             }
             if (odd != NULL)
                 delete[] odd;
-            space = newspace;
+            space = n;
         }
     }
 
@@ -32,6 +33,7 @@ public:
         size = space = 0;
         elem = NULL;
     }
+
     Vector(int n)
     {
         size = n;
@@ -39,15 +41,21 @@ public:
         elem = new T[n];
     }
 
-    Vector(const Vector &v) : size(v.size), space(v.space), elem(new T[v.space])
+    Vector(const Vector &v)
     {
+        size = v.size;
+        space = v.space;
+        elem = new T[v.space];
         for (int i = 0; i < size; i++)
         {
             elem[i] = v.elem[i];
         }
     }
 
-    ~Vector() { delete[] elem; }
+    ~Vector()
+    { 
+        delete[] elem;
+    }
 
     Vector<T> &operator=(const Vector &p)
     {
@@ -113,6 +121,12 @@ public:
 
     void Insert(T val, int pos)
     {
+        if(pos >= size)
+        {
+            Push_Back(val);
+            return;
+        }
+
         if (size == space)
         {
             if (size == 0)
@@ -140,55 +154,59 @@ public:
     void Clear()
     {
         size = 0;
+        delete[] elem;
     }
 
     class Iterator
     {
-        private:
-            T *ptr;
+    private:
+        T *ptr;
 
-        public:
-            Iterator() : ptr(nullptr) {}
+    public:
+        Iterator()
+        {
+            ptr = nullptr;
+        }
 
-            Iterator(T *p)
-            {
-                ptr = p;
-            }
+        Iterator(T *p)
+        {
+            ptr = p;
+        }
 
-            bool operator==(Iterator *other)
-            {
-                return ptr == other->ptr;
-            }
+        bool operator==(Iterator *other)
+        {
+            return ptr == other->ptr;
+        }
 
-            bool operator!=(Iterator *other)
-            {
-                return ptr != other->ptr;
-            }
+        bool operator!=(Iterator *other)
+        {
+            return ptr != other->ptr;
+        }
 
-            Iterator operator++()
-            {
-                ptr = ptr + 1;
-                return *this;
-            }
+        Iterator operator++()
+        {
+            ptr = ptr + 1;
+            return *this;
+        }
 
-            Iterator operator++(int)
-            {
-                Iterator tmp = *this;
-                ptr = ptr + 1;
-                return tmp;
-            }
+        Iterator operator++(int)
+        {
+            Iterator tmp = *this;
+            ptr = ptr + 1;
+            return tmp;
+        }
 
-            T &operator*()
-            {
-                return *ptr;
-            }
+        T &operator*()
+        {
+            return *ptr;
+        }
     };
 
     Iterator begin()
     {
         return elem;
     }
-    
+
     Iterator end()
     {
         return elem + size;

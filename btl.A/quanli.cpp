@@ -20,6 +20,7 @@ public:
 
 void QuanLi::Nhap()
 {
+    Mon.clear();
     int n;
 back:
     cout << "Nhap so luong do choi: ";
@@ -132,6 +133,12 @@ void QuanLi::Them()
     cin >> soluong;
     cin.ignore();
 
+    if(soluong <= 0)
+    {
+        cout << "So luong khong hop le !" << endl;
+        return;
+    }
+
     DoChoi b(madochoi, tendochoi, dongia, phanloai, soluong);
 
 back:
@@ -148,6 +155,13 @@ back:
         cout << "Nhap vi tri muon chen: ";
         cin >> pos;
         list<DoChoi>::iterator dc = Mon.begin();
+
+        if(pos < 0)
+        {
+            cout << "Vi tri chen khong hop le !" << endl;
+            return;
+        }
+
         for (int i = 1; i < pos; i++)
         {
             dc++;
