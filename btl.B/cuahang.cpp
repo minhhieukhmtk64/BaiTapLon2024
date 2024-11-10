@@ -10,6 +10,7 @@ private:
     Vector<MatHang> a;
     Vector<HoaDon> b;
 
+private: 
     // Hàm đọc file mặt hàng
     void Doc_File_MH(ifstream &file)
     {
